@@ -7,8 +7,9 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { connect } from 'react-redux';
 import { isMobile } from './utils';
 import { useEffect, useState } from 'react';
+import { getSongs } from './redux/actions/songs';
 
-function AppComponent({ songs }) {
+function AppComponent({ songs, dispatch }) {
   const [state, setState] = useState({ isMobileSize: isMobile() });
   const { songsItems = {} } = songs;
 
@@ -31,11 +32,15 @@ function AppComponent({ songs }) {
     window.addEventListener('resize', handleResize);
   }, []);
 
+  const handleGetSongs = (artist) => {
+    dispatch(getSongs({ artist }));
+  };
+
   return (
     <div className="App">
       <Header
         left={<Icon name={isMobile() ? 'menu' : 'gesture'} color="secondary" size="mini" />}
-        center={<SearchBar isMobile={state.isMobileSize} placeholder="Search" />}
+        center={<SearchBar isMobile={state.isMobileSize} placeholder="Search" onChange={handleGetSongs} />}
         right={<Icon name="heart" color="secondary" size="mini" counter={favouriteCount} />}
       />
       <ByArtist />

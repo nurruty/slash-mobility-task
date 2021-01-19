@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getSongs } from '../../redux/actions/songs';
+import React from 'react';
 import Icon from '../Icon/Icon';
 import './SearchBar.scss';
 
-const SearchBarComponent = (props) => {
-  const { placeholder, dispatch, isMobile } = props;
+const SearchBar = (props) => {
+  const { placeholder, isMobile, onChange } = props;
 
   const handleInput = (e) => {
     if (e.target.value) {
-      dispatch(getSongs({ artist: e.target.value }));
+      onChange && onChange(e.target.value);
     }
   };
 
@@ -22,7 +20,5 @@ const SearchBarComponent = (props) => {
     </div>
   );
 };
-
-const SearchBar = connect()(SearchBarComponent);
 
 export default SearchBar;
