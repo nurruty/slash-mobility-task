@@ -1,23 +1,19 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/Header/Header';
+import ByArtist from './pages/ByArtist';
+import Icon from './components/Icon/Icon';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header
+        left={<Icon name="gesture" color="secondary" size="mini" />}
+        center={<SearchBar placeholder="Search" />}
+        right={<Icon name="heart" color="secondary" size="mini" />}
+      />
+      <ByArtist />
     </div>
   );
 }

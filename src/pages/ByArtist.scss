@@ -1,0 +1,19 @@
+@import '../scss/variables.scss';
+
+.ByArtist {
+  position: relative;
+  top: 50px;
+  padding: $layout-padding;
+  background-color: $gray;
+
+  &-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    flex: 1 0 21%; /* explanation below */
+    margin-top: 30px;
+  }
+}

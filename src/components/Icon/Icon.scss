@@ -1,0 +1,43 @@
+@import '../../scss/variables.scss';
+
+.Icon {
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  position: relative;
+
+  &-svg {
+    width: 51px;
+    height: 51px;
+    position: relative;
+    transform: translate(0, 0);
+    z-index: 5;
+  }
+
+  &_nano {
+    width: 38.25px;
+    height: 38.25px;
+
+    transform: scale(0.6);
+  }
+
+  &_mini {
+    width: 51px;
+    height: 51px;
+    transform: scale(0.7);
+  }
+
+  &_primary,
+  &_primary path {
+    fill: $blue;
+  }
+
+  &_secondary,
+  &_secondary path {
+    fill: $gray;
+  }
+
+  &_white,
+  &_white path {
+    fill: $white;
+  }
+}
