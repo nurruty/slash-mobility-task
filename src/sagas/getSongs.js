@@ -1,10 +1,12 @@
 import * as ActionTypes from '../constants/ActionTypes';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, take, delay } from 'redux-saga/effects';
 import { getSongs } from '../api/songs';
 
-function* getAllSongs() {
+function* getAllSongs({ payload }) {
+  const { artist = '' } = payload;
   try {
-    const songs = yield call(getSongs);
+    yield delay(300);
+    const songs = yield call(getSongs, { artist });
     yield put({ type: ActionTypes.GET_SONGS_SUCCEDED, payload: songs });
   } catch (e) {
     yield put({ type: ActionTypes.GET_SONGS_FAILED, message: e.message });

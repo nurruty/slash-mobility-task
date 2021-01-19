@@ -2,18 +2,25 @@
 
 .ByArtist {
   position: relative;
-  top: 50px;
-  padding: $layout-padding;
-  background-color: $gray;
+  top: 10px;
+  padding: $layout-padding 80px;
 
   &-content {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
   }
 
   &-item {
     flex: 1 0 21%; /* explanation below */
-    margin-top: 30px;
+    margin-top: 40px;
+  }
+
+  &_mobile {
+    .ByArtist-item {
+      margin-top: 30px;
+    }
   }
 }

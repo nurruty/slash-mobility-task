@@ -1,29 +1,28 @@
 import React, { useEffect } from 'react';
-import { debounce } from '../../utils';
+import { connect } from 'react-redux';
+import { getSongs } from '../../redux/actions/songs';
 import Icon from '../Icon/Icon';
 import './SearchBar.scss';
 
-const SearchBar = ({ placeholder, onSubmit }) => {
-  useEffect(() => {
-    const input = document.getElementById('searchBar');
-    input.addEventListener(
-      'input',
-      debounce(() => {
-        console.log('Hola');
-      })
-    );
-  }, []);
+const SearchBarComponent = (props) => {
+  const { placeholder, dispatch, isMobile } = props;
 
-  const handleSubmit = () => {
-    onSubmit && onSubmit();
+  const handleInput = (e) => {
+    if (e.target.value) {
+      dispatch(getSongs({ artist: e.target.value }));
+    }
   };
 
+  const mobileClass = isMobile ? ' SearchBar_mobile' : '';
+
   return (
-    <div className="SearchBar">
-      <input id="searchBar" type="search" name="searchBar" placeholder={placeholder} />
+    <div className={'SearchBar' + mobileClass}>
+      <input id="searchBar" type="search" name="searchBar" placeholder={placeholder} onChange={handleInput} />
       <Icon name="magnify" size="nano" color="white" />
     </div>
   );
 };
+
+const SearchBar = connect()(SearchBarComponent);
 
 export default SearchBar;

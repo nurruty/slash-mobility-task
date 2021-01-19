@@ -1,17 +1,14 @@
 import axios from 'axios';
-import { mockResponse } from '../utils';
 
-function getSongs() {
+function getSongs({ artist }) {
   return axios
-    .get(`https://itunes.apple.com/search?term=nombre+artista&entity=song`)
+    .get(`https://itunes.apple.com/search?term=${artist}&entity=song`)
     .then((res) => {
-      return res;
+      const { data = {} } = res;
+      return data.results;
     })
     .catch((err) => {
-      const response = mockResponse();
-      const { results } = response;
-
-      return results;
+      return err;
     });
 }
 

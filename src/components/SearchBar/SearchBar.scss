@@ -7,6 +7,7 @@
   overflow: hidden;
   background-color: $blue-dark;
   margin-top: 5px;
+  margin-left: 100px;
 
   .SearchBar:focus-within i {
     display: none;
@@ -21,7 +22,6 @@
   }
 
   .Icon {
-    //padding: 0.5rem;
     grid-row: 1;
     grid-column: 2/4;
     z-index: 2;
@@ -42,5 +42,9 @@
       color: $white;
       opacity: 0.6; /* Firefox */
     }
+  }
+
+  &_mobile {
+    margin-left: 0;
   }
 }

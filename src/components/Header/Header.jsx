@@ -6,7 +6,7 @@ const Header = ({ left, center, right }) => {
   const mobileClass = isMobile() ? ' Header_mobile' : '';
 
   return (
-    <div className={'Header ' + mobileClass}>
+    <div className={'Header' + mobileClass}>
       <div className="Header-sections-container">
         <div className="Header-sections">
           <div className="Header-section Header-section_left">{left}</div>

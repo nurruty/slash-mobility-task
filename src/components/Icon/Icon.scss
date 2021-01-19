@@ -13,6 +13,18 @@
     z-index: 5;
   }
 
+  &-counter {
+    position: absolute;
+    border-radius: 50%;
+    background-color: $gray-medium;
+    width: 18px;
+    height: 17px;
+    right: 5px;
+    z-index: 10;
+    font-size: 10px;
+    color: $white;
+  }
+
   &_nano {
     width: 38.25px;
     height: 38.25px;
@@ -21,8 +33,8 @@
   }
 
   &_mini {
-    width: 51px;
-    height: 51px;
+    width: 41px;
+    height: 41px;
     transform: scale(0.7);
   }
 
@@ -39,5 +51,16 @@
   &_white,
   &_white path {
     fill: $white;
+  }
+
+  &_blue,
+  &_blue path {
+    fill: $blue;
+  }
+
+  &-border {
+    &_blue path {
+      stroke: $blue;
+    }
   }
 }
